@@ -2,19 +2,18 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-
- const Sources = ({displaySongs, name, spotifyId}) => {
+ const Sources = displaySources => {
   return (
         <div className="main">
             <h2>News Sources</h2>
             <h4>Click on a news source to display the top 10 articles.</h4>
             <div className="album-display">
-            {displaySongs && displaySongs.map(song => {
+            {displaySources && displaySources.map(source => {
               return (
-                <div key={song.id} className="top-song">
-                <Link to={`/songs/${song.id}`}>
-                  <p>{song.name} by {song.artists[0].name}</p>
-                  <img className="album-thumbmail" src={song.album.images[0].url} />
+                <div key={source.id} className="top-song">
+                <Link to={`/sources/${source.id}`}>
+                  <p>{source.name}</p>
+                  <p>{source.description}</p>
                 </Link>
                 </div>
               )
@@ -26,9 +25,14 @@ import {Link} from 'react-router-dom';
 
 // Container
 const mapState = state => ({
-    displaySongs: state.songs.slice(0, 20),
-    name: state.user.name,
-    spotifyId: state.user.spotifyId
-  })
+  // displaySources: state.sources.filter(source =>
+  //   source.id === "the-new-york-times" ||
+  //   source.id === "bbc-news" ||
+  //   source.id === "the-hindu" ||
+  //   source.id === "the-guardian-uk" ||
+  //   source.id === "al-jazeera-english"
+  // )
+  displaySources: state.sources
+})
 
 export default connect(mapState, null)(Sources);
