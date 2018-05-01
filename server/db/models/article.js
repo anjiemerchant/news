@@ -8,6 +8,9 @@ const Article = db.define('article', {
   source: {
     type: Sequelize.STRING
   },
+  sourceId: {
+    type: Sequelize.STRING
+  },
   description: {
     type: Sequelize.STRING
   },
@@ -15,10 +18,10 @@ const Article = db.define('article', {
     type: Sequelize.STRING,
   },
   urlToImage: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
   },
   url: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
 
 })

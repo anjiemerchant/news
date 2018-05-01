@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchSavedArticles} from '../store';
-import {toDate} from '../../utils'
+import {toDate} from '../../utils';
+import {ArticleDisplay} from './article-display'
 
 class SavedArticles extends Component {
 
@@ -10,28 +11,14 @@ class SavedArticles extends Component {
   }
 
   render() {
-    if (!this.props.savedArticles) return <h1> Saved stories loading...</h1>;
+    if (!this.props.savedArticles) return <h2> Saved stories loading...</h2>;
+    else if (this.props.savedArticles.length === 0) return <h2> You have no saved articles </h2>
     else {
       const articles = this.props.savedArticles
       return (
         <div>
         <h2>Your Saved Articles</h2>
-
-          <div className="article-display">
-                {articles.map(article => {
-                    return (
-                      <div key={article.url} className="article">
-                        <a href={article.url} target="_blank">
-                        <p><b>{article.title}</b></p>
-                        <img src={article.urlToImage} />
-                        </a>
-                        <p>Published: {toDate(article.publishedAt)}</p>
-                        <p>{article.description}</p>
-                        <button onClick={(e) => this.handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button>
-                      </div>
-                    )
-                  })}
-            </div>
+          <ArticleDisplay articles={articles} showButtons={false} />
         </div>
       )
     }

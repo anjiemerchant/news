@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from '../history';
 
 // action types
 const GET_ALL_SAVED_ARTICLES = 'GET_ALL_SAVED_ARTICLES';
@@ -32,6 +33,9 @@ export const fetchSavedArticles = () => {
 
 export const saveArticle = article => dispatch => {
   axios.post(`/api/articles`, article)
-  .then(newArticle => dispatch(addNewArticle(newArticle.data)))
+  .then(newArticle => {
+    dispatch(addNewArticle(newArticle.data))
+    history.push('/saved')
+  })
   .catch(err => console.error('error saving a new article', err))
 }

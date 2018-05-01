@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchSingleSourceArticles, saveArticle} from '../store';
-import {toDate} from '../../utils'
+import {ArticleDisplay} from './article-display'
 
 class SingleSource extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       singleSourceArticles: this.props.singleSourceArticles
     }
-
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -34,8 +32,9 @@ class SingleSource extends Component {
     const clickedArticle = this.state.singleSourceArticles.filter(article => article.url === articleUrl)[0]
     const {title, description, urlToImage, url, publishedAt} = clickedArticle
     const source = clickedArticle.source.name
+    const sourceId = clickedArticle.source.id
     const userId = this.props.user.id
-    this.props.saveArticle({source, title, description, urlToImage, url, publishedAt, userId})
+    this.props.saveArticle({source, sourceId, title, description, urlToImage, url, publishedAt, userId})
   }
 
   render() {
@@ -45,22 +44,7 @@ class SingleSource extends Component {
       return (
         <div>
         <h2>Today's top articles from {this.props.singleSource}</h2>
-
-          <div className="article-display">
-                {articles.map(article => {
-                    return (
-                      <div key={article.url} className="article">
-                        <a href={article.url} target="_blank">
-                        <p><b>{article.title}</b></p>
-                        <img src={article.urlToImage} />
-                        </a>
-                        <p>Published: {toDate(article.publishedAt)}</p>
-                        <p>{article.description}</p>
-                        <button onClick={(e) => this.handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button>
-                      </div>
-                    )
-                  })}
-            </div>
+        <ArticleDisplay articles={articles} showButtons={true} handleClick={this.handleClick} />
         </div>
       )
     }

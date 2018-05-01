@@ -1,8 +1,8 @@
 import React from 'react';
 import {toDate} from '../../utils'
+import {Link} from 'react-router-dom';
 
-export const ArticleDisplay = props => {
-  const articles = props.articles
+export const ArticleDisplay = ({articles, showButtons, handleClick}) => {
   return (
   <div className="article-display">
       {articles.map(article => {
@@ -14,7 +14,8 @@ export const ArticleDisplay = props => {
             </a>
             <p>Published: {toDate(article.publishedAt)}</p>
             <p>{article.description}</p>
-            <button onClick={(e) => this.handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button>
+            {showButtons ? <button onClick={(e) => handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button> : <Link className="link" to={`/sources/${article.sourceId}`}>
+            <p>{article.source}</p></Link> }
            </div>
           )
       })}
