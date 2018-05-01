@@ -14,7 +14,6 @@ class SingleSource extends Component {
 
   componentDidMount() {
     const source = this.props.match.params.sourceId;
-    console.log('source', source)
     this.props.fetchSingleSourceArticles(source)
   }
 
@@ -27,9 +26,26 @@ class SingleSource extends Component {
   }
 
   render() {
-    return (
-      <h1>test</h1>
-    )
+    if (!this.state.singleSourceArticles) return <div />;
+    else {
+      const articles = this.state.singleSourceArticles
+      return (
+        <div className="album-display">
+          <ol>
+          Today's top articles
+              {articles.map(article => {
+                  return (
+                    <li key={article.url} className="top-song">
+                      <a href={article.url}>
+                        <p>{article.description}</p>
+                      </a>
+                    </li>
+                  )
+                })}
+          </ol>
+        </div>
+      )
+    }
   }
 }
 

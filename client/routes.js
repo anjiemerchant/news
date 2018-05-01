@@ -53,8 +53,6 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
       dispatch(me())
-    },
-    fetchSources() {
       dispatch(fetchSources())
     }
   }

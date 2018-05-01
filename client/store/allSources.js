@@ -23,7 +23,7 @@ export default (sources = [], action) => {
 // thunk creators
 export const fetchSources = () => {
   return dispatch => {
-    return axios.post('/api/sources')
+    return axios.get('/api/sources')
       .then(res => res.data)
       .then(sources => dispatch(getAllSources(sources.sources)))
       .catch(err => console.error('error fetching sources', err))
