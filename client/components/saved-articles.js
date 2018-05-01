@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchSavedArticles} from '../store';
-import {toDate} from '../../utils';
 import {ArticleDisplay} from './article-display'
 
 class SavedArticles extends Component {
@@ -16,7 +15,7 @@ class SavedArticles extends Component {
     else {
       const articles = this.props.savedArticles
       return (
-        <div>
+        <div className="main">
         <h2>Your Saved Articles</h2>
           <ArticleDisplay articles={articles} showButtons={false} />
         </div>
@@ -25,13 +24,9 @@ class SavedArticles extends Component {
   }
 }
 
-
-// Container
-const mapState = state => {
-  return ({
-    savedArticles: state.savedArticles
-  })
-}
+const mapState = state => ({
+  savedArticles: state.savedArticles
+})
 
 const mapDispatch = {fetchSavedArticles}
 

@@ -1,18 +1,17 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import React from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {logout} from '../store';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div className="container nav">
     <div className="container">
-      <img className="nav-img" src="/newspaper.png" alt="newspaper" />
+      <img className="nav-img" src="/newspaper.png" alt="newspaper logo" />
       <h1>News Aggregator</h1>
     </div>
     <nav>
       {isLoggedIn ? (
         <div>
-          {/* The navbar will show these links after you log in */}
           <Link to="/sources">News Sources</Link>
           <Link to="/saved">My Saved Articles</Link>
           <a href="#" onClick={handleClick}>
@@ -21,7 +20,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       ) : (
         <div>
-          {/* The navbar will show these links before you log in */}
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
         </div>
@@ -31,14 +29,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
   </div>
 )
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    isLoggedIn: !!state.user.id
-  }
-}
+const mapState = state => ({
+  isLoggedIn: !!state.user.id
+})
 
 const mapDispatch = dispatch => {
   return {

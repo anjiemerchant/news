@@ -1,5 +1,5 @@
-import axios from 'axios'
-import history from '../history'
+import axios from 'axios';
+import history from '../history';
 
 // action types
 const GET_USER = 'GET_USER'

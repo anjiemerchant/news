@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom';
  const Sources = props => {
   return (
         <div className="main">
-            <h2>News Providers: click on a source to display the provider's top 10 articles</h2>
+            <h2>News Providers</h2>
+            <h4>Click on a source listed below to display the top headlines</h4>
             <div>
             {props.displaySources && props.displaySources.map(source => {
               return (
@@ -21,7 +22,6 @@ import {Link} from 'react-router-dom';
         )
   }
 
-// Container
 const mapState = state => ({
   displaySources: state.sources.filter(source =>
     source.id === "the-new-york-times" ||

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchSingleSourceArticles, saveArticle} from '../store';
-import {ArticleDisplay} from './article-display'
+import {ArticleDisplay} from './article-display';
 
 class SingleSource extends Component {
 
@@ -42,7 +42,7 @@ class SingleSource extends Component {
     else {
       const articles = this.state.singleSourceArticles
       return (
-        <div>
+        <div className="main">
         <h2>Today's top articles from {this.props.singleSource}</h2>
         <ArticleDisplay articles={articles} showButtons={true} handleClick={this.handleClick} />
         </div>
@@ -52,13 +52,11 @@ class SingleSource extends Component {
 }
 
 // Container
-const mapState = state => {
-  return {
+const mapState = state => ({
     singleSourceArticles: state.singleSourceArticles,
     singleSource: state.singleSourceArticles.length ? state.singleSourceArticles[0].source.name : '',
     user: state.user
-  }
-}
+})
 
 const mapDispatch = {fetchSingleSourceArticles, saveArticle}
 
