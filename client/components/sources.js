@@ -12,9 +12,8 @@ import {Link} from 'react-router-dom';
               return (
                 <div key={source.id} className="top-song">
                 <Link to={`/sources/${source.id}`}>
-                  <p>{source.name}</p>
+                  <h3>{source.name}</h3></Link>
                   <p>{source.description}</p>
-                </Link>
                 </div>
               )
             })}

@@ -8,8 +8,10 @@ class SingleSource extends Component {
     super(props);
 
     this.state = {
-      singleSourceArticles: this.props.singleSourceArticles,
+      singleSourceArticles: this.props.singleSourceArticles
     }
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +27,11 @@ class SingleSource extends Component {
     }
   }
 
+  handleClick (event) {
+    event.preventDefault()
+    this.props.deleteProduct(this.state.currentProduct.id)
+  }
+
   render() {
     if (!this.state.singleSourceArticles) return <div />;
     else {
@@ -32,13 +39,15 @@ class SingleSource extends Component {
       return (
         <div className="album-display">
           <ol>
-          Today's top articles
+          Today's top articles from {this.props.singleSource}
               {articles.map(article => {
                   return (
                     <li key={article.url} className="top-song">
-                      <a href={article.url}>
-                        <p>{article.description}</p>
+                      <a href={article.url} target="_blank">
+                        <p>{article.title} by {article.author} </p>
                       </a>
+                        <p>{article.description}</p>
+                        <button onClick={this.handleClick} className="btn btn-warning button-fix">Save to My Articles</button>
                     </li>
                   )
                 })}
@@ -52,7 +61,8 @@ class SingleSource extends Component {
 // Container
 const mapState = state => {
   return {
-    singleSourceArticles: state.singleSourceArticles
+    singleSourceArticles: state.singleSourceArticles,
+    singleSource: state.singleSourceArticles.length ? state.singleSourceArticles[0].source.name : ''
   }
 }
 
