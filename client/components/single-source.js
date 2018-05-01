@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchSingleSourceArticles} from '../store';
+import {toDate} from '../../utils'
 
 class SingleSource extends Component {
 
@@ -15,6 +16,7 @@ class SingleSource extends Component {
   }
 
   componentDidMount() {
+    window.scroll(0, 0);
     const source = this.props.match.params.sourceId;
     this.props.fetchSingleSourceArticles(source)
   }
@@ -33,25 +35,28 @@ class SingleSource extends Component {
   }
 
   render() {
-    if (!this.state.singleSourceArticles) return <div />;
+    if (!this.state.singleSourceArticles) return <h1> Top stories loading...</h1>;
     else {
       const articles = this.state.singleSourceArticles
       return (
-        <div className="album-display">
-          <ol>
-          Today's top articles from {this.props.singleSource}
-              {articles.map(article => {
-                  return (
-                    <li key={article.url} className="top-song">
-                      <a href={article.url} target="_blank">
-                        <p>{article.title} by {article.author} </p>
-                      </a>
+        <div>
+        <h2>Today's top articles from {this.props.singleSource}</h2>
+
+          <div className="article-display">
+                {articles.map(article => {
+                    return (
+                      <div key={article.url} className="article">
+                        <a href={article.url} target="_blank">
+                        <p><b>{article.title}</b></p>
+                        <img src={article.urlToImage} />
+                        </a>
+                        <p>Published: {toDate(article.publishedAt)}</p>
                         <p>{article.description}</p>
                         <button onClick={this.handleClick} className="btn btn-warning button-fix">Save to My Articles</button>
-                    </li>
-                  )
-                })}
-          </ol>
+                      </div>
+                    )
+                  })}
+            </div>
         </div>
       )
     }

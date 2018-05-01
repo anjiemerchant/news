@@ -1,21 +1,109 @@
 body {
-  font-family: sans-serif;
+  font-family: "Open Sans";
+  background-color: #FFFDF4;
+  margin: 0px;
 }
 
 a {
   text-decoration: none;
 }
 
-label {
-  display: block;
+h1 {
+  font-family: "Arvo";
+  color: #414535;
+  font-size: 6vh;
+}
+
+h2 {
+  margin-bottom: none;
+  color: #011936;
+}
+
+h3 {
+  text-decoration: underline;
+  color: #011936;
+}
+
+h4 {
+  text-decoration: none;
+  color: #011936;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: 1em;
+  color:#011936
+}
+
+ul {
+ list-style-type: none;
 }
 
 nav a {
+  color: #414535;
   display: inline-block;
   margin: 1em;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+.nav {
+  border-bottom: 1px solid rgb(0,0,0);padding-bottom:10px;
+  background-color: #f2e3bc;
+  color: #FFFDF4;
+  height: 3em;
+}
+
+.nav-img {
+  height: 7vh;
+  width: auto;
+  padding: 10px;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  color: #ddd;
+  height: 2em;
+  font-family: "Arvo";
+  font-size: 0.9em;
+  padding: 10px;
+}
+
+.footer a {
+  color: #f2e3bc;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main {
+  padding: 10px;
+}
+
+
+.article-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.article-thumbmail {
+  width: 80%;
+  height: auto;
+}
+
+.article {
+  margin: 10px;
+  flex: 0 0 33%;
+  justify-content: center;
+  text-align: center;
+  background-color: #fffdf4;
+  padding: 10px;
+  border: solid 1px #84848496;
+  color: #473144;
 }

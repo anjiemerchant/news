@@ -5,12 +5,11 @@ import {Link} from 'react-router-dom';
  const Sources = props => {
   return (
         <div className="main">
-            <h2>News Sources</h2>
-            <h4>Click on a news source to display the top 10 articles.</h4>
-            <div className="album-display">
+            <h2>News Providers: click on a source to display the provider's top 10 articles</h2>
+            <div>
             {props.displaySources && props.displaySources.map(source => {
               return (
-                <div key={source.id} className="top-song">
+                <div key={source.id}>
                 <Link to={`/sources/${source.id}`}>
                   <h3>{source.name}</h3></Link>
                   <p>{source.description}</p>
