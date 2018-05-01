@@ -113,7 +113,7 @@ nav a {
 }
 
 .link {
-  color: #473144;
+  color: #6ba292;
 }
 
 .login {
@@ -142,6 +142,6 @@ button {
   background-color: #4CAF50;
   color: white;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 15px;
   padding: 5px;
 }

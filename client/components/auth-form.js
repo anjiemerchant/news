@@ -8,7 +8,7 @@ const AuthForm = (props) => {
   return (
     <div className="container login">
     <img className="login-photo" src="/login.jpg" alt="newspaper" />
-    <h4>News Aggregator allows you to see and save top stories from worldwide media outlets</h4>
+    <h4>News Aggregator allows you to see and save top stories from worldwide media outlets.</h4>
       <div className="form">
         <form onSubmit={handleSubmit} name={name}>
           <div>
