@@ -21,17 +21,17 @@ export default (savedArticles = [], action) => {
 }
 
 // thunk creators
-export const fetchSources = () => {
+export const fetchSavedArticles = () => {
   return dispatch => {
     return axios.get('/api/articles')
       .then(res => res.data)
-      .then(sources => dispatch(getAllSavedArticles(sources)))
-      .catch(err => console.error('error fetching sources', err))
+      .then(articles => dispatch(getAllSavedArticles(articles)))
+      .catch(err => console.error('error fetching saved articles', err))
   }
 }
 
-export const postLineItem = article => dispatch => {
+export const saveArticle = article => dispatch => {
   axios.post(`/api/articles`, article)
   .then(newArticle => dispatch(addNewArticle(newArticle.data)))
-  .catch(err => console.error('error creating a new line item', err))
+  .catch(err => console.error('error saving a new article', err))
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchSingleSourceArticles} from '../store';
+import {fetchSingleSourceArticles, saveArticle} from '../store';
 import {toDate} from '../../utils'
 
 class SingleSource extends Component {
@@ -29,9 +29,13 @@ class SingleSource extends Component {
     }
   }
 
-  handleClick (event) {
+  handleClick(articleUrl, event) {
     event.preventDefault()
-    this.props.deleteProduct(this.state.currentProduct.id)
+    const clickedArticle = this.state.singleSourceArticles.filter(article => article.url === articleUrl)[0]
+    const {title, description, urlToImage, url, publishedAt} = clickedArticle
+    const source = clickedArticle.source.name
+    const userId = this.props.user.id
+    this.props.saveArticle({source, title, description, urlToImage, url, publishedAt, userId})
   }
 
   render() {
@@ -52,7 +56,7 @@ class SingleSource extends Component {
                         </a>
                         <p>Published: {toDate(article.publishedAt)}</p>
                         <p>{article.description}</p>
-                        <button onClick={this.handleClick} className="btn btn-warning button-fix">Save to My Articles</button>
+                        <button onClick={(e) => this.handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button>
                       </div>
                     )
                   })}
@@ -67,10 +71,11 @@ class SingleSource extends Component {
 const mapState = state => {
   return {
     singleSourceArticles: state.singleSourceArticles,
-    singleSource: state.singleSourceArticles.length ? state.singleSourceArticles[0].source.name : ''
+    singleSource: state.singleSourceArticles.length ? state.singleSourceArticles[0].source.name : '',
+    user: state.user
   }
 }
 
-const mapDispatch = {fetchSingleSourceArticles}
+const mapDispatch = {fetchSingleSourceArticles, saveArticle}
 
 export default connect(mapState, mapDispatch)(SingleSource);

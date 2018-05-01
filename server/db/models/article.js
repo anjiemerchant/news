@@ -8,12 +8,19 @@ const Article = db.define('article', {
   source: {
     type: Sequelize.STRING
   },
-  published: {
+  description: {
+    type: Sequelize.STRING
+  },
+  publishedAt: {
+    type: Sequelize.STRING,
+  },
+  urlToImage: {
     type: Sequelize.STRING,
   },
   url: {
     type: Sequelize.STRING
-  }
+  },
+
 })
 
 module.exports = Article
