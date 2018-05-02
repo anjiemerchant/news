@@ -14,7 +14,7 @@ export const ArticleDisplay = ({articles, showButtons, handleClick}) => {
             </a>
             <p>Published: {toDate(article.publishedAt)}</p>
             <p>{article.description}</p>
-            {showButtons ? <button onClick={(e) => handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button> : <Link to={`/sources/${article.sourceId}`}>
+            {showButtons ? <button onClick={e => handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button> : <Link to={`/sources/${article.sourceId}`}>
              <p className="link">More from {article.source}</p></Link> }
            </div>
           )

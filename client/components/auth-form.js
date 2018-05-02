@@ -4,26 +4,28 @@ import {auth} from '../store';
 
 const AuthForm = (props) => {
   const {name, displayName, handleSubmit, error} = props
-
+  console.log(displayName, "displayName")
   return (
-    <div className="container login">
-    <img className="login-photo" src="/login.jpg" alt="newspaper" />
-    <h4>News Aggregator allows you to see and save top stories from worldwide media outlets.</h4>
-      <div className="form">
-        <form onSubmit={handleSubmit} name={name}>
-          <div>
-            <label htmlFor="email"><small>Email</small></label>
-            <input name="email" type="text" />
-          </div>
-          <div>
-            <label htmlFor="password"><small>Password</small></label>
-            <input name="password" type="password" />
-          </div>
-          <div>
-            <button type="submit">{displayName}</button>
-          </div>
-          {error && error.response && <div> {error.response.data} </div>}
-        </form>
+    <div className="login">
+      <div className="main-section">
+        <h4 className="main-header">Everything New(s) allows you to see and save top stories from worldwide media outlets.</h4>
+      </div>
+      {displayName === "Login" ?  <h5>Enter your credentials below to log into Everything New(s): </h5> : <h5>Create credentials below to create an account with Everything New(s): </h5>}
+      <div>
+            <form onSubmit={handleSubmit} name={name}>
+              <div className="login-element">
+                <label htmlFor="email"><small>Email</small></label>
+                <input name="email" type="text" />
+              </div>
+              <div className="login-element">
+                <label htmlFor="password"><small>Password</small></label>
+                <input name="password" type="password" />
+              </div>
+              <div className="login-element" >
+                <button type="submit">{displayName}</button>
+              </div>
+              {error && error.response && <div> {error.response.data} </div>}
+            </form>
       </div>
     </div>
   )

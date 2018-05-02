@@ -6,6 +6,7 @@ module.exports = router
 
 router.get('/sources', (req, res, next) => {
   let request = news.fetchSources()
+  console.log(request)
 
   axios.request(request)
     .then(response => res.send(response.data))

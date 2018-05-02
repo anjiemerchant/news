@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {logout} from '../store';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({handleClick, isLoggedIn}) => (
   <div className="container nav">
     <div className="container">
       <img className="nav-img" src="/newspaper.png" alt="newspaper logo" />
-      <h1>News Aggregator</h1>
+      <h1>Everything New(s)</h1>
     </div>
     <nav>
       {isLoggedIn ? (
@@ -25,7 +25,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       )}
     </nav>
-    <hr />
   </div>
 )
 

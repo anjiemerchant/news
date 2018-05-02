@@ -4,6 +4,16 @@ body {
   margin: 0em 0em 2em 0em ;
 }
 
+.main-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('./login.png');
+  height: 80vh;
+  width: 100%;
+  font-weight: bold;
+}
+
 a {
   text-decoration: none;
 }
@@ -79,16 +89,9 @@ nav a {
   color: #f2e3bc;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .main {
   padding: 10px;
 }
-
 
 .article-display {
   display: flex;
@@ -122,19 +125,27 @@ nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
-  margin-left: 30px;
-  margin-right: 30px;
-  text-align: center;
+  height: 70vh;
 }
 
-.login-photo {
-  height: 30vw;
-  width: auto;
+
+form {
+  display: flex;
+  align-items: center;
 }
 
-.form {
-  justify-content: left;
+.login-element {
+  padding: 10px;
+}
+
+label {
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {
