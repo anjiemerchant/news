@@ -2,8 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {auth} from '../store';
 
-const AuthForm = (props) => {
-  const {name, displayName, handleSubmit, error} = props;
+const AuthForm = ({name, displayName, handleSubmit, error}) => {
   return (
     <div className="login">
       <div className="main-section">
@@ -14,11 +13,11 @@ const AuthForm = (props) => {
             <form onSubmit={handleSubmit} name={name}>
               <div className="login-element">
                 <label htmlFor="email"><small>Email</small></label>
-                <input name="email" type="text" />
+                <input name="email" type="email" />
               </div>
               <div className="login-element">
                 <label htmlFor="password"><small>Password</small></label>
-                <input name="password" type="password" />
+                <input name="password" type="password"  />
               </div>
               <div className="login-element" >
                 <button type="submit">{displayName}</button>
@@ -52,7 +51,7 @@ const mapDispatch = dispatch => {
       dispatch(auth(email, password, formName))
     }
   }
-};
+}
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm);
 export const Signup = connect(mapSignup, mapDispatch)(AuthForm);
