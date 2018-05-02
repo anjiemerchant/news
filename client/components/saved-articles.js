@@ -29,6 +29,6 @@ const mapState = state => ({
   savedArticles: state.savedArticles
 });
 
-const mapDispatch = {fetchSavedArticles}
+const mapDispatch = {fetchSavedArticles};
 
 export default connect(mapState, mapDispatch)(SavedArticles);

@@ -38,7 +38,7 @@ const mapDispatch = dispatch => {
       dispatch(logout())
     }
   }
-}
+};
 
 export default connect(mapState, mapDispatch)(Navbar);
 

@@ -22,7 +22,7 @@ export default function (state = defaultUser, action) {
     default:
       return state
   }
-}
+};
 
 // thunk creators
 export const me = () =>

@@ -58,6 +58,6 @@ const mapState = state => ({
     user: state.user
 });
 
-const mapDispatch = {fetchSingleSourceArticles, saveArticle}
+const mapDispatch = {fetchSingleSourceArticles, saveArticle};
 
 export default connect(mapState, mapDispatch)(SingleSource);

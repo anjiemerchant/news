@@ -18,7 +18,7 @@ export default (singleSourceArticles = [], action) => {
   default:
     return singleSourceArticles;
   }
-}
+};
 
 // thunk creators
 export const fetchSingleSourceArticles = id => {
@@ -28,4 +28,4 @@ export const fetchSingleSourceArticles = id => {
       .then(articles => dispatch(getSourceArticles(articles.articles)))
       .catch(err => console.error('error fetching articles', err))
   }
-}
+};

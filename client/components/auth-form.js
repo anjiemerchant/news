@@ -52,7 +52,7 @@ const mapDispatch = dispatch => {
       dispatch(auth(email, password, formName))
     }
   }
-}
+};
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm);
 export const Signup = connect(mapSignup, mapDispatch)(AuthForm);

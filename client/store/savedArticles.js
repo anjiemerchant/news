@@ -19,7 +19,7 @@ export default (savedArticles = [], action) => {
   default:
     return savedArticles;
   }
-}
+};
 
 // thunk creators
 export const fetchSavedArticles = () => {
@@ -29,7 +29,7 @@ export const fetchSavedArticles = () => {
       .then(articles => dispatch(getAllSavedArticles(articles)))
       .catch(err => console.error('error fetching saved articles', err))
   }
-}
+};
 
 export const saveArticle = article => dispatch => {
   axios.post(`/api/articles`, article)
@@ -38,4 +38,4 @@ export const saveArticle = article => dispatch => {
     history.push('/saved')
   })
   .catch(err => console.error('error saving a new article', err))
-}
+};

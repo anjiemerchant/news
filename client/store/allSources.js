@@ -18,7 +18,7 @@ export default (sources = [], action) => {
   default:
     return sources;
   }
-}
+};
 
 // thunk creators
 export const fetchSources = () => {
@@ -28,4 +28,4 @@ export const fetchSources = () => {
       .then(sources => dispatch(getAllSources(sources.sources)))
       .catch(err => console.error('error fetching sources', err))
   }
-}
+};
