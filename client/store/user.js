@@ -2,15 +2,15 @@ import axios from 'axios';
 import history from '../history';
 
 // action types
-const GET_USER = 'GET_USER'
-const REMOVE_USER = 'REMOVE_USER'
+const GET_USER = 'GET_USER';
+const REMOVE_USER = 'REMOVE_USER';
 
 // initial state
-const defaultUser = {}
+const defaultUser = {};
 
 // action creators
-const getUser = user => ({type: GET_USER, user})
-const removeUser = () => ({type: REMOVE_USER})
+const getUser = user => ({type: GET_USER, user});
+const removeUser = () => ({type: REMOVE_USER});
 
 // reducer
 export default function (state = defaultUser, action) {

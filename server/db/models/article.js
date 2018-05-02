@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db');
 
 // The database schema is currently set up in a normalized fashion, as Article and User are connected by a many-to-many relationship. As the the amount of data grows with an increasing number of users, joins will longer. It might be necessary to denormalize and accept redundancy for the sake of quicker querying.
 const Article = db.define('article', {
@@ -7,7 +7,8 @@ const Article = db.define('article', {
     type: Sequelize.STRING
   },
   source: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   sourceId: {
     type: Sequelize.STRING
@@ -28,13 +29,12 @@ const Article = db.define('article', {
   },
   url: {
     type: Sequelize.TEXT,
-    unique: true,
     validate: {
       isUrl: {
         msg: 'Invalid Url'
       }
     }
   }
-})
+});
 
-module.exports = Article
+module.exports = Article;

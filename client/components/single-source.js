@@ -23,24 +23,24 @@ class SingleSource extends Component {
     if (newProps.singleSourceArticles !== this.props.singleSourceArticles) {
       this.setState({
         singleSourceArticles: newProps.singleSourceArticles
-      })
+      });
     }
   }
 
   handleClick(articleUrl, event) {
-    event.preventDefault()
-    const clickedArticle = this.state.singleSourceArticles.filter(article => article.url === articleUrl)[0]
-    const {title, description, urlToImage, url, publishedAt} = clickedArticle
-    const source = clickedArticle.source.name
-    const sourceId = clickedArticle.source.id
-    const userId = this.props.user.id
-    this.props.saveArticle({source, sourceId, title, description, urlToImage, url, publishedAt, userId})
+    event.preventDefault();
+    const clickedArticle = this.state.singleSourceArticles.filter(article => article.url === articleUrl)[0];
+    const {title, description, urlToImage, url, publishedAt} = clickedArticle;
+    const source = clickedArticle.source.name;
+    const sourceId = clickedArticle.source.id;
+    const userId = this.props.user.id;
+    this.props.saveArticle({source, sourceId, title, description, urlToImage, url, publishedAt, userId});
   }
 
   render() {
     if (!this.state.singleSourceArticles) return <h1> Top stories loading...</h1>;
     else {
-      const articles = this.state.singleSourceArticles
+      const articles = this.state.singleSourceArticles;
       return (
         <div className="main">
         <h2>Today's top articles from {this.props.singleSource}</h2>
@@ -56,7 +56,7 @@ const mapState = state => ({
     singleSourceArticles: state.singleSourceArticles,
     singleSource: state.singleSourceArticles.length ? state.singleSourceArticles[0].source.name : '',
     user: state.user
-})
+});
 
 const mapDispatch = {fetchSingleSourceArticles, saveArticle}
 

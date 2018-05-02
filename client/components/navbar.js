@@ -30,7 +30,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
 
 const mapState = state => ({
   isLoggedIn: !!state.user.id
-})
+});
 
 const mapDispatch = dispatch => {
   return {
@@ -40,5 +40,5 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Navbar)
+export default connect(mapState, mapDispatch)(Navbar);
 

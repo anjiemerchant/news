@@ -1,6 +1,6 @@
-const crypto = require('crypto')
-const Sequelize = require('sequelize')
-const db = require('../db')
+const crypto = require('crypto');
+const Sequelize = require('sequelize');
+const db = require('../db');
 
 const User = db.define('user', {
   email: {
@@ -19,13 +19,10 @@ const User = db.define('user', {
     get () {
       return () => this.getDataValue('salt')
     }
-  },
-  googleId: {
-    type: Sequelize.STRING
   }
-})
+});
 
-module.exports = User
+module.exports = User;
 
 // instance methods
 User.prototype.correctPassword = function (candidatePwd) {

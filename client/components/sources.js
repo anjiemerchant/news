@@ -29,6 +29,6 @@ const mapState = state => ({
     source.id === "the-guardian-uk" ||
     source.id === "al-jazeera-english"
   )
-})
+});
 
 export default connect(mapState, null)(Sources);

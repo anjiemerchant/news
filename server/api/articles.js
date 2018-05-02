@@ -1,10 +1,11 @@
-const router = require('express').Router()
-const {Article} = require('../db/models')
-const {User} = require('../db/models')
-module.exports = router
+const router = require('express').Router();
+const {Article} = require('../db/models');
+const {User} = require('../db/models');
+const {isLoggedIn} = require('../../utils.js');
+module.exports = router;
 
-router.get('/', (req, res, next) => {
-  const userId = req.user.id
+router.get('/', isLoggedIn, (req, res, next) => {
+  const userId = req.user.id;
   User.findById(userId)
     .then(user => user.getArticles())
     .then(articles => {
@@ -13,8 +14,8 @@ router.get('/', (req, res, next) => {
     .catch(next);
 })
 
-router.post('/', (req, res, next) => {
-  const {title, source, sourceId, description, publishedAt, urlToImage, url} = req.body
+router.post('/', isLoggedIn, (req, res, next) => {
+  const {title, source, sourceId, description, publishedAt, urlToImage, url} = req.body;
   Article.findOrCreate({
     where: {
       title,

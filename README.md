@@ -27,6 +27,15 @@ Once you've completed the above, you're ready to start a local server. Run `npm 
 
 In your browser, navigate to `http://localhost:8080/` and the app should be up and running.
 
+### Running Tests
+To run tests, you'll need to set up a test PostgreSQL datbase. In your terminal, run the command:
+
+`createdb test-polis`
+
+Tests can be run by typing:
+
+`npm run test`
+
 ## Authors
 Anjali Merchant
 

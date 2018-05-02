@@ -6,11 +6,11 @@ import {me, fetchSources} from './store';
 
 class Routes extends Component {
   componentDidMount () {
-    this.props.loadInitialData()
+    this.props.loadInitialData();
   }
 
   render () {
-    const {isLoggedIn} = this.props
+    const {isLoggedIn} = this.props;
 
     return (
       <Switch>
@@ -31,13 +31,11 @@ class Routes extends Component {
   }
 }
 
-const mapState = (state) => {
-  return {
+const mapState = state => ({
     isLoggedIn: !!state.user.id
-  }
-}
+  });
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
     loadInitialData () {
       dispatch(me())
@@ -46,4 +44,4 @@ const mapDispatch = (dispatch) => {
   }
 }
 
-export default withRouter(connect(mapState, mapDispatch)(Routes))
+export default withRouter(connect(mapState, mapDispatch)(Routes));

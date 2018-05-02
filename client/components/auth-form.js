@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 import {auth} from '../store';
 
 const AuthForm = (props) => {
-  const {name, displayName, handleSubmit, error} = props
+  const {name, displayName, handleSubmit, error} = props;
   return (
     <div className="login">
       <div className="main-section">
         <h4 className="main-header">Everything New(s) allows you to see and save top stories from worldwide media outlets.</h4>
       </div>
-      {displayName === "Login" ?  <h5>Enter your credentials below to log into Everything New(s): </h5> : <h5>Create credentials below to create an account with Everything New(s): </h5>}
+      {displayName === "Login" ?  <h5>Enter your credentials below to log into Everything New(s): </h5> : <h5>Create an account with Everything New(s): </h5>}
       <div>
             <form onSubmit={handleSubmit} name={name}>
               <div className="login-element">
@@ -34,13 +34,13 @@ export const mapLogin = state => ({
   name: 'login',
   displayName: 'Login',
   error: state.user.error
-})
+});
 
 const mapSignup = state => ({
   name: 'signup',
   displayName: 'Sign Up',
   error: state.user.error
-})
+});
 
 const mapDispatch = dispatch => {
   return {
@@ -54,5 +54,5 @@ const mapDispatch = dispatch => {
   }
 }
 
-export const Login = connect(mapLogin, mapDispatch)(AuthForm)
-export const Signup = connect(mapSignup, mapDispatch)(AuthForm)
+export const Login = connect(mapLogin, mapDispatch)(AuthForm);
+export const Signup = connect(mapSignup, mapDispatch)(AuthForm);
