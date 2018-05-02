@@ -1,7 +1,7 @@
 const db = require('../db');
 const Article = require('./article');
 const {User} = require('./index.js');
-const chai = require('chai')
+const chai = require('chai');
 const expect = chai.expect;
 const Promise = require('bluebird');
 
