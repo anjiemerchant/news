@@ -1,4 +1,4 @@
-# News App
+# Everything New(s)
 Built over the course of two days using Node.js, Express, Sequelize, PostgreSQL, React, Redux, and React-Redux, Everything New(s) uses the News API to allow users to view and save top stories from worldwide media outlets.
 
 ## Installation
@@ -14,6 +14,7 @@ To complete setup, create a secrets.js file in the main project folder. Add the 
 process.env.API_KEY = *your api key here*
 
 ```
+
 ### Database Setup
 You'll need manually create a PostgreSQL database to store users' data (ids and saved articles). If you have PostgreSQL installed globally, in your terminal run the command:
 

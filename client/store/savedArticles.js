@@ -2,12 +2,12 @@ import axios from 'axios';
 import history from '../history';
 
 // action types
-const GET_ALL_SAVED_ARTICLES = 'GET_ALL_SAVED_ARTICLES';
-const ADD_NEW_ARTICLE = 'ADD_NEW_ARTICLE'
+export const GET_ALL_SAVED_ARTICLES = 'GET_ALL_SAVED_ARTICLES';
+export const ADD_NEW_ARTICLE = 'ADD_NEW_ARTICLE'
 
 // action creators
-const getAllSavedArticles = articles => ({type: GET_ALL_SAVED_ARTICLES, articles});
-const addNewArticle = article => ({ type: ADD_NEW_ARTICLE, article })
+export const getAllSavedArticles = articles => ({type: GET_ALL_SAVED_ARTICLES, articles});
+export const addNewArticle = article => ({ type: ADD_NEW_ARTICLE, article })
 
 // reducer
 export default (savedArticles = [], action) => {
