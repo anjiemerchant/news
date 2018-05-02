@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-// The database schema is currently set up in a denormalized fashion; if different users saved the same article, the article would appear twice. To make the database more normalized and eliminate the row redundancies, Article and User could be connected by a "belongs-to-many" association aka a join table. Joins become more expensive as the size of the app grows, so there are tradeoffs to both approaches.
+// The database schema is currently set up in a normalized fashion, as Article and User are connected by a many-to-many relationship. As the database grows larger, joins take longer. It might be necessary to denormalize and accept redundancy for the sake of quicker querying.
 const Article = db.define('article', {
   title: {
     type: Sequelize.STRING
@@ -13,18 +13,24 @@ const Article = db.define('article', {
     type: Sequelize.STRING
   },
   description: {
-    type: Sequelize.STRING
+    type: Sequelize.TEXT
   },
   publishedAt: {
     type: Sequelize.STRING,
   },
   urlToImage: {
     type: Sequelize.TEXT,
+    validate: {
+      isUrl: true
+    }
   },
   url: {
-    type: Sequelize.TEXT
-  },
-
+    type: Sequelize.TEXT,
+    unique: true,
+    validate: {
+      isUrl: true
+    }
+  }
 })
 
 module.exports = Article

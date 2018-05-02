@@ -3,7 +3,7 @@ import {toDate} from '../../utils';
 import {Link} from 'react-router-dom';
 
 export const ArticleDisplay = ({articles, showButtons, handleClick}) => {
-  return (
+return (
   <div className="article-display">
       {articles.map(article => {
           return (
@@ -12,7 +12,7 @@ export const ArticleDisplay = ({articles, showButtons, handleClick}) => {
                 <p><b>{article.title}</b></p>
                 <img src={article.urlToImage} />
             </a>
-            <p>Published: {toDate(article.publishedAt)}</p>
+            {!!article.publishedAt && <p>Published: {toDate(article.publishedAt)}</p>}
             <p>{article.description}</p>
             {showButtons ? <button onClick={e => handleClick(article.url, e)} className="btn btn-warning button-fix">Save to My Articles</button> : <Link to={`/sources/${article.sourceId}`}>
              <p className="link">More from {article.source}</p></Link> }
