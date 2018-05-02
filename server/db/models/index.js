@@ -6,5 +6,5 @@ module.exports = {
   Article
 }
 
-Article.belongsTo(User);
-User.hasMany(Article);
+Article.belongsToMany(User, {through: "UserArticle"});
+User.belongsToMany(Article, {through: "UserArticle"});

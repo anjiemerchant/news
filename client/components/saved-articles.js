@@ -6,6 +6,7 @@ import {ArticleDisplay} from './article-display'
 class SavedArticles extends Component {
 
   componentDidMount() {
+    window.scroll(0, 0);
     this.props.fetchSavedArticles()
   }
 
