@@ -18,7 +18,7 @@ export default (singleSourceArticles = [], action) => {
   default:
     return singleSourceArticles;
   }
-};
+}
 
 // thunk creators
 export const fetchSingleSourceArticles = id => {

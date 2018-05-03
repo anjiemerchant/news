@@ -51,7 +51,6 @@ class SingleSource extends Component {
   }
 }
 
-// Container
 const mapState = state => ({
     singleSourceArticles: state.singleSourceArticles,
     singleSource: state.singleSourceArticles.length ? state.singleSourceArticles[0].source.name : '',

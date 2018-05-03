@@ -19,7 +19,7 @@ export default (savedArticles = [], action) => {
   default:
     return savedArticles;
   }
-};
+}
 
 // thunk creators
 export const fetchSavedArticles = () => {

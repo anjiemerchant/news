@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
   axios.request(request)
     .then(response => res.send(response.data))
     .catch(next)
-  });
+  })
 
 router.get(`/:sourceId`, (req, res, next) => {
   let request = news.fetchSourceArticles(req.params.sourceId);
@@ -18,4 +18,4 @@ router.get(`/:sourceId`, (req, res, next) => {
   axios.request(request)
     .then(response => res.send(response.data))
     .catch(next)
-  });
+  })

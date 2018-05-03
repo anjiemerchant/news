@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
- const Sources = props => {
+ const Sources = ({displaySources}) => {
   return (
         <div className="main">
             <h2>News Providers: Click on a source listed below to display the provider's top headlines</h2>
             <div>
-            {props.displaySources && props.displaySources.map(source => {
+            {displaySources && displaySources.map(source => {
               return (
                 <div key={source.id}>
                 <Link to={`/sources/${source.id}`}>

@@ -2,13 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {auth} from '../store';
 
+// Dynamic form validation should be added here, requiring that AuthForm be turned into a stateful component.
+
 const AuthForm = ({name, displayName, handleSubmit, error}) => {
   return (
     <div className="login">
       <div className="main-section">
         <h4 className="main-header">Everything New(s) allows you to see and save top stories from worldwide media outlets.</h4>
       </div>
-      {displayName === "Login" ?  <h5>Enter your credentials below to log into Everything New(s): </h5> : <h5>Create an account with Everything New(s): </h5>}
+      {displayName === "Login" ?  <h5>Enter your credentials below to log into Everything New(s): </h5> : <h5>Create an account with Everything New(s) to view and save top stories. </h5>}
       <div>
             <form onSubmit={handleSubmit} name={name}>
               <div className="login-element">
@@ -41,8 +43,7 @@ const mapSignup = state => ({
   error: state.user.error
 });
 
-const mapDispatch = dispatch => {
-  return {
+const mapDispatch = dispatch => ({
     handleSubmit (evt) {
       evt.preventDefault()
       const formName = evt.target.name
@@ -50,8 +51,7 @@ const mapDispatch = dispatch => {
       const password = evt.target.password.value
       dispatch(auth(email, password, formName))
     }
-  }
-}
+});
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm);
 export const Signup = connect(mapSignup, mapDispatch)(AuthForm);

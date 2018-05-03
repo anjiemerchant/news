@@ -35,13 +35,11 @@ const mapState = state => ({
     isLoggedIn: !!state.user.id
   });
 
-const mapDispatch = dispatch => {
-  return {
+const mapDispatch = dispatch => ({
     loadInitialData () {
       dispatch(me())
       dispatch(fetchSources())
     }
-  }
-}
+});
 
 export default withRouter(connect(mapState, mapDispatch)(Routes));

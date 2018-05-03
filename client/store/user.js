@@ -13,7 +13,7 @@ const getUser = user => ({type: GET_USER, user});
 const removeUser = () => ({type: REMOVE_USER});
 
 // reducer
-export default function (state = defaultUser, action) {
+export default (state = defaultUser, action) => {
   switch (action.type) {
     case GET_USER:
       return action.user
@@ -22,7 +22,7 @@ export default function (state = defaultUser, action) {
     default:
       return state
   }
-};
+}
 
 // thunk creators
 export const me = () =>
