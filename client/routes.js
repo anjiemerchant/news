@@ -16,13 +16,12 @@ class Routes extends Component {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route exact path="/sources" component={Sources} />
-        <Route path="/sources/:sourceId" component={SingleSource} />
-        <Route path="/saved" component={SavedArticles} />
         {
           isLoggedIn &&
             <Switch>
-              <Route path="/home" component={UserHome} />
+              <Route exact path="/sources" component={Sources} />
+              <Route path="/sources/:sourceId" component={SingleSource} />
+              <Route path="/saved" component={SavedArticles} />
             </Switch>
         }
         <Route component={Login} />
