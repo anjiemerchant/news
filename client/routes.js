@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {withRouter, Route, Switch} from 'react-router-dom';
-import {Login, Signup, UserHome, Sources, SingleSource, SavedArticles} from './components';
+import {Login, Signup, Sources, SingleSource, SavedArticles} from './components';
 import {me, fetchSources} from './store';
 
 class Routes extends Component {
